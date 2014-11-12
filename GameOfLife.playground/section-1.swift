@@ -25,8 +25,8 @@ struct Cell {
 }
 
 func bigBang(gridWidth: Int, gridHeight: Int) -> [[Cell]] {
-    return (0..<gridHeight).map { (y: Int) -> [Cell] in
-        (0..<gridWidth).map { (x: Int) -> Cell in
+    return (0..<gridHeight).map { y in
+        (0..<gridWidth).map { x in
             let cellState: CellState = arc4random_uniform(10) < 3 ? .Alive : .Dead
             return Cell(state: cellState, position: (x, y))
         }
