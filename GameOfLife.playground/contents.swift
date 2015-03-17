@@ -17,11 +17,6 @@ struct Cell {
     let state: CellState
     let position: (x: Int, y: Int)
     
-    init(state: CellState, position: (x: Int, y: Int)) {
-        self.state = state
-        self.position = position
-    }
-    
 }
 
 func bigBang(gridWidth: Int, gridHeight: Int) -> [[Cell]] {
@@ -113,7 +108,7 @@ let wait = SKAction.waitForDuration(0.1)
 let tick = SKAction.runBlock {
     universe = nextGeneration(universe)
     for child in scene.children {
-        let node = child as SKSpriteNode
+        let node = child as! SKSpriteNode
         let position = spriteToCellDict[node]!
         node.color = spriteColorForState(universe[position.y][position.x].state)
     }
